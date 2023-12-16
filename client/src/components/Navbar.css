@@ -1,0 +1,28 @@
+:root {
+    --navbar-background-color: #242524;
+    --navbar-font-family: "Gill Sans", sans-serif;;
+    --navbar-font-size: 15px;
+  }
+
+  /* Navigation Styles */
+.nav-container{
+    background-color: var(--navbar-background-color);
+    color: white;
+    padding: 5px;
+    font-family: var(--navbar-font-family);
+    font-size: var(--navbar-font-size);
+}
+
+/* Navigation list of item */
+.nav-container ul {
+    list-style-type: none; 
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Navigation each item in list ul */
+.nav-container a{
+    color: white;
+    text-decoration: none;
+}
