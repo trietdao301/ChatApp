@@ -2,6 +2,7 @@
     --navbar-background-color: #242524;
     --navbar-font-family: "Gill Sans", sans-serif;;
     --navbar-font-size: 15px;
+    --navbar-item-gap: 40px;
   }
 
   /* Navigation Styles */
@@ -18,7 +19,7 @@
     list-style-type: none; 
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: var(--navbar-item-gap);
 }
 
 /* Navigation each item in list ul */

@@ -4,7 +4,6 @@ function Navbar(){
 
     return(
         <nav className = "nav-container">
-            
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/">Matches</a></li>
