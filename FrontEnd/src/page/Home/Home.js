@@ -1,18 +1,33 @@
 import Navbar from "../../components/Navbar.js";
+import Sell from "./Sell.js";
 import {useState, useEffect} from "react";
 import useFetch from "../../hooks/useFetch.js";
+import DisplayAllProducts from "../../components/DisplayAllProducts.js"
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
+
 function Home(){
     const [url,setUrl] = useState({});
-    const {data} = useFetch(url);
+    const {data} = useFetch('http://172.23.30.165:5000');       //use fetch input = usefetch({url: 'link'})
     
     console.log("Home is running");
     return(
         <>
-            <Navbar/>
-            <div> {JSON.stringify(data)}</div>
-            <button onClick={() => setUrl({url:"http://172.23.30.165:5000//index"})}>Button 1</button>
-            <button onClick={() => setUrl({url:"http://172.23.30.165:5000//student"})}>Button 2</button>
-        </> 
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={<DisplayAllProducts products={data?.products || []} />}
+            />
+            <Route path="/sell" element={<Sell />} />
+          </Routes>
+        </Router>
+      </>
     );
 }
 export default Home;

@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import re
 from app import db
-from app.Model.model import Product
+from app.Model.model import House
 
 
 def amazon(driver,item):
@@ -82,7 +82,7 @@ def tokenizeName(string):
     # Select the first line as the product name
     for i in range (0,max_iteration):
         product_name = lines[i].strip()
-        if len(product_name) > min_len:
+        if len(product_name) > min_len and product_name != "Opens in a new window or tab":
             result = product_name
             min_len = len(product_name)
     return result
@@ -95,13 +95,13 @@ def tokenize(string):
         return data
 
 
-def scrap():
+def scrap_ebay(keyword):
     options = webdriver.ChromeOptions()
     options.headless = False
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(10)
     
-    item = "laptop"
+    item = keyword
     ebay_data = ebay(driver,item)
         
 
@@ -110,4 +110,21 @@ def scrap():
 
     driver.quit()
     return ebay_data 
+
+def scrap_amazon(keyword):
+    options = webdriver.ChromeOptions()
+    options.headless = False
+    driver = webdriver.Chrome(options=options)
+    driver.implicitly_wait(10)
     
+    item = keyword
+    amazon_data = amazon(driver,item)
+
+    driver.quit()
+    return amazon_data 
+
+# def main():
+#     data = scrap_ebay("shoe")
+#     for item in data:
+#         print(item)
+# main()

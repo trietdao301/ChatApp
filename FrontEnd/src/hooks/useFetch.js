@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (options) => {
+const useFetch = (url) => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
         console.log("useEffect");
-        if(options.url){
-            fetch(options.url)
+        if(url){
+            fetch(url)
             .then((response) => response.json())
             .then((json) => setData(json));
         }
         
-    },[options.url]);
+    },[url]);
 
     return {data};
 };
