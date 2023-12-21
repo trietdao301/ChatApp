@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import "./CreateHouseForm.css";
+import { useNavigate } from 'react-router-dom';
+
+
 const CreateHouseForm = () => {
 
+const navigate = useNavigate();
 const [formData, setFormdata] = useState(
   {address: '',
   bedrooms: '',
@@ -14,9 +18,30 @@ const handleChange = (e) =>{
     const value = e.target.value;
     setFormdata(values => ({...values,[name]:value}))
 }
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
-  console.log(formData)
+  try {
+    const response = await fetch('http://172.23.30.165:5000/api/create_house', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    
+    window.location.href =('/');
+    //navigate('/', { isReload: true });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const responseData = await response.json();
+    console.log(responseData);
+    
+  } catch (error) {
+    console.error('Error:', error);
+  }
 };
 
   return (

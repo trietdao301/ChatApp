@@ -18,4 +18,15 @@ def index():
     houses_list = [{'id': house.id, 'address': house.address, 'price': house.price} for house in data]
     return {'products': houses_list}
 
-
+@bp_routes.route('/api/create_house', methods=['POST'])
+def create_house():
+    data = request.get_json()
+    try:
+        if data:
+            new_item = House(address = data.get('address'), price = data.get('price'))
+            db.session.add(new_item)
+            db.session.commit()
+            return jsonify({'message': 'House created successfully'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': f'Error creating house: {str(e)}'}), 500
