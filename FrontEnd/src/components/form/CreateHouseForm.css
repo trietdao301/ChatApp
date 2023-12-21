@@ -1,0 +1,60 @@
+:root{
+    /* form */
+    --create-house-form-font-family: "Gill Sans", sans-serif;
+
+    /* form label */
+    --create-house-form-font-size-label: 14px;
+
+    /* form input, form textarea */
+    --create-house-form-input-box-and-text-area-border: 1px solid rgb(136, 136, 136);
+    --create-house-form-input-box-and-text-area-border-radius: 5px;
+    --create-house-form-input-box-and-text-area-width: 200px;
+    --create-house-form-input-box-and-text-area-height: 25px;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    font-family: var(--create-house-form-font-family);
+    width: fit-content;
+    margin-top: 10px;
+}
+form label {
+    font-weight: bold;
+    font-size: var(--create-house-form-font-size-label);
+}
+form input, form textarea{
+    border-radius: var(--create-house-form-input-box-and-text-area-border-radius);
+    border: var(--create-house-form-input-box-and-text-area-border);
+    transition: transform 0.1s ease;
+    width: var(--create-house-form-input-box-and-text-area-width);
+    height: var(--create-house-form-input-box-and-text-area-height);
+}
+
+form input:hover{
+    transform: scale(1.02);
+}
+
+form textarea:hover{
+    transform: scale(1.02);
+}
+form button{
+    width: 100px;
+    height: 30px;
+    background-color: #007bff; /* Default button color */
+    color: #fff; /* Text color (white) for contrast */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+
+    /* Transition for a smooth effect */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Change color on hover */
+}
+
+form button:active {
+    transform: scale(0.95); /* Shrink the button slightly when pressed */
+    background-color: #004080; /* Change color when pressed */
+}

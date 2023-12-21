@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar.js";
 import Sell from "./Sell.js";
 import {useState, useEffect} from "react";
+import "./Home.css";
 import useFetch from "../../hooks/useFetch.js";
 import DisplayAllProducts from "../../components/DisplayAllProducts.js"
 import {
@@ -16,7 +17,7 @@ function Home(){
     
     console.log("Home is running");
     return(
-        <>
+        <div className = "HomeContainer">
         <Router>
           <Navbar />
           <Routes>
@@ -27,7 +28,7 @@ function Home(){
             <Route path="/sell" element={<Sell />} />
           </Routes>
         </Router>
-      </>
+      </div>
     );
 }
 export default Home;
