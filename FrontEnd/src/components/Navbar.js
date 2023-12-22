@@ -1,14 +1,15 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Navbar(){
 
     return(
         <nav className = "nav-container">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Login</a></li>
-                <li><Link to="/sell">Sell</Link></li>
+                <li><NavLink to="/">Home</NavLink></li>
+                <li><NavLink to="/login">Login</NavLink></li>
+                <li><NavLink to="/sell">Sell</NavLink></li>
+                <li><NavLink to="/market">Market</NavLink></li>
             </ul>
         </nav>
     );

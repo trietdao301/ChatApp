@@ -1,4 +1,4 @@
-import CreateHouseForm from "../../components/form/CreateHouseForm";
+import CreateHouseForm from "../components/form/CreateHouseForm";
 
 function Sell(){
     return (

@@ -2,7 +2,7 @@
     --navbar-background-color: #242524;
     --navbar-font-family: "Gill Sans", sans-serif;
     --navbar-font-size: 15px;
-    --navbar-item-gap: 40px;
+    --navbar-item-gap: 60px;
   }
 
   /* Navigation Styles */
@@ -26,4 +26,11 @@
 .nav-container a{
     color: white;
     text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nav-container a.active{
+    background-color: rgb(255, 255, 255);
+    color: black;
 }

@@ -16,7 +16,7 @@ bp_routes = Blueprint('routes', __name__)
 def index():
     data = House.query.all()
     houses_list = [{'id': house.id, 'address': house.address, 'price': house.price} for house in data]
-    return {'products': houses_list}
+    return houses_list
 
 @bp_routes.route('/api/create_house', methods=['POST'])
 def create_house():
