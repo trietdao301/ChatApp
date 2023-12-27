@@ -1,4 +1,4 @@
-/* .HomeContainer{
-    display:flex;
-    flex-direction: column;
-} */
+.HomeContainer{
+    width:fit-content;
+    height: fit-content;
+}

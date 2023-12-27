@@ -5,6 +5,7 @@ from flask import render_template, flash, redirect, url_for, request, jsonify
 from config import Config
 from app.Model.model import House
 from app import db
+from flask_socketio import SocketIO
 
 
 bp_routes = Blueprint('routes', __name__)
@@ -30,3 +31,7 @@ def create_house():
     except Exception as e:
         db.session.rollback()
         return jsonify({'error': f'Error creating house: {str(e)}'}), 500
+    
+
+
+

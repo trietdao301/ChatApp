@@ -1,13 +1,17 @@
 from app import create_app, db
-from app.Model.model import House
+from app.Model.model import House, User
 from flask_cors import CORS
+from flask_socketio import SocketIO
 #from scrapper_selenium import scrap_ebay,scrap_amazon
+import jwt
 
 app = create_app()
 CORS(app)
-
+socketio = SocketIO(app)
 keyword = "shoe"
 
+
+    
 @app.before_request
 def initDB(*args, **kwargs):
     if app.got_first_request:
@@ -20,6 +24,13 @@ def initDB(*args, **kwargs):
             db.session.add(house_object_1)
             db.session.add(house_object_2)
             db.session.add(house_object_3)
+            db.session.commit()
+        
+        if User.query.count() == 0:
+            user_object_1 = User(username="john", email="john@gmail.com")
+            user_object_1.set_password("123")
+            user_object_1.house.append(house_object_1)
+            db.session.add(user_object_1)
             db.session.commit()
         # if Product.query.count() == 0:
         #     ebay_data = scrap_ebay(keyword)
@@ -49,4 +60,4 @@ def initDB(*args, **kwargs):
         #     db.session.commit()
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug= True)
+     socketio.run(app, host='0.0.0.0', debug=True)

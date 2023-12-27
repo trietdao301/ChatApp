@@ -16,6 +16,8 @@ def create_app(config_class=Config):
 
     from app.Controller.routes import bp_routes as routes    # Solve Not Found Issue
     app.register_blueprint(routes)                           # Solve Not Found Issue
+    from app.Controller.auth_routes import bp_auth as auth
+    app.register_blueprint(auth)
 
     if not app.debug and not app.testing:
         pass

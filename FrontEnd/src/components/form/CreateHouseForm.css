@@ -12,18 +12,18 @@
     --create-house-form-input-box-and-text-area-height: 25px;
 }
 
-form {
+.CreateHouseForm-container {
     display:flex;
     flex-direction: column;
     font-family: var(--create-house-form-font-family);
     width: fit-content;
     margin-top: 10px;
 }
-form label {
+.CreateHouseForm-container label {
     font-weight: bold;
     font-size: var(--create-house-form-font-size-label);
 }
-form input, form textarea{
+.CreateHouseForm-container input, .CreateHouseForm-container textarea{
     border-radius: var(--create-house-form-input-box-and-text-area-border-radius);
     border: var(--create-house-form-input-box-and-text-area-border);
     transition: transform 0.1s ease;
@@ -31,14 +31,14 @@ form input, form textarea{
     height: var(--create-house-form-input-box-and-text-area-height);
 }
 
-form input:hover{
+.CreateHouseForm-container input:hover{
     transform: scale(1.02);
 }
 
-form textarea:hover{
+.CreateHouseForm-container textarea:hover{
     transform: scale(1.02);
 }
-form button{
+.CreateHouseForm-container button{
     width: 100px;
     height: 30px;
     background-color: #007bff; /* Default button color */
@@ -50,11 +50,11 @@ form button{
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-form button:hover {
+.CreateHouseForm-container button:hover {
     background-color: #0056b3; /* Change color on hover */
 }
 
-form button:active {
+.CreateHouseForm-container button:active {
     transform: scale(0.95); /* Shrink the button slightly when pressed */
     background-color: #004080; /* Change color when pressed */
 }

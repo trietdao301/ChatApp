@@ -1,0 +1,72 @@
+:root{
+    --RegisterForm-container-font-family: "Gill Sans", sans-serif;
+}
+
+.RegisterForm-container {
+    display:flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    font-family: var(--RegisterForm-container-font-family);
+    margin:auto;
+    margin-top: 100px;
+  }
+  
+  /* Style for the register form heading */
+  .RegisterForm-container header {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+    place-self: center;
+  }
+  
+  /* Style for form labels */
+  .RegisterForm-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  /* Style for form inputs */
+  .RegisterForm-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style for the submit button */
+  .RegisterForm-container button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Style for the submit button on hover */
+  .RegisterForm-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the "Back to Sign in" link */
+  .RegisterForm-container a {
+    padding-top: 15px;
+    margin-left: auto;
+    text-decoration: none;
+    color: #00197f;
+    right:10px;
+    font-size:13px;
+  }
+  
+  /* Style for the "Back to Sign in" link on hover */
+  .RegisterForm-container a:hover {
+    text-decoration: underline;
+    color: #000000;
+  }
