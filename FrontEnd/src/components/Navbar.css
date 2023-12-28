@@ -1,36 +1,44 @@
-:root {
-    --navbar-background-color: #242524;
-    --navbar-font-family: "Gill Sans", sans-serif;
-    --navbar-font-size: 15px;
-    --navbar-item-gap: 60px;
-  }
-
-  /* Navigation Styles */
-.nav-container{
-    background-color: var(--navbar-background-color);
-    color: white;
-    padding: 5px;
-    font-family: var(--navbar-font-family);
-    font-size: var(--navbar-font-size);
-}
-
-/* Navigation list of item */
-.nav-container ul {
-    list-style-type: none; 
+/* Navbar container */
+.nav-container {
     display: flex;
-    justify-content: center;
-    gap: var(--navbar-item-gap);
-}
-
-/* Navigation each item in list ul */
-.nav-container a{
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.nav-container a.active{
-    background-color: rgb(255, 255, 255);
-    color: black;
-}
+    /* Align items to the start and end */
+    background-color: #2c3e50; /* Navbar background color */
+    padding: 15px; /* Padding around the navbar */
+    font-family:Arial, Helvetica, sans-serif
+  }
+  
+  /* User information */
+  .user {
+    color: #ecf0f1; /* Text color for user information */
+    font-weight: bold; /* Bold font for user information */
+    margin-right: 400px;
+  }
+  
+  /* List container */
+  .list-container {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    gap:40px;
+  }
+  
+  /* List items */
+  .list {
+    margin-left: 15px; /* Add space between list items */
+  }
+  
+  /* Links */
+  .list a {
+    color: #ecf0f1; /* Text color for links */
+    text-decoration: none; /* Remove underlines from links */
+    padding: 8px; /* Padding around links */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  /* Active link */
+  .list a.active {
+    background-color: #3498db; /* Background color for active link */
+    color: #fff; /* Text color for active link */
+  }

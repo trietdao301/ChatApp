@@ -7,7 +7,7 @@ const Protected = () => {
   let navigate = useNavigate();
   const data = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  const [nameObject, setNameObject] = useState(null);
   //const isAuthenticated = useRef(false);
   useEffect(() => {
     const verifyToken = async () => {
@@ -21,6 +21,7 @@ const Protected = () => {
           const resData = await response.json();
           console.log("In protected" + JSON.stringify(resData));
           //isAuthenticated.current = false;
+          setNameObject(resData); // nameObject = {name:"john"}
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
@@ -34,7 +35,7 @@ const Protected = () => {
   }, []);
   console.log("protected route runs");
 
-  return <>{isAuthenticated && <RootLayOut />}</>; //<Navigate to="/login" />
+  return <>{isAuthenticated && <RootLayOut name={nameObject} />}</>; //<Navigate to="/login" />
 };
 
 export default Protected;
