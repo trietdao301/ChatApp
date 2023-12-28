@@ -1,6 +1,6 @@
 import LoginForm from "../../components/form/LoginForm.js";
 import "./Login.css";
-function Login({ isAuthenticated }) {
+function Login() {
   return (
     <div>
       <LoginForm />

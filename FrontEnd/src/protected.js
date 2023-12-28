@@ -1,10 +1,13 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import RootLayOut from "./components/layout/RootLayOut";
 import { useEffect, useRef, useState } from "react";
+import Login from "./page/Login/Login.js";
 
 const Protected = () => {
+  let navigate = useNavigate();
   const data = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   //const isAuthenticated = useRef(false);
   useEffect(() => {
     const verifyToken = async () => {
@@ -17,23 +20,21 @@ const Protected = () => {
         if (response.ok) {
           const resData = await response.json();
           console.log("In protected" + JSON.stringify(resData));
-          if (resData) {
-            setIsAuthenticated(true);
-            console.log(isAuthenticated);
-          } else {
-            console.log("user is inauthenticated.");
-          }
+          //isAuthenticated.current = false;
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          navigate("/login");
         }
       } catch (error) {
         console.error("Error verifying data:", error);
       }
     };
     verifyToken();
-  }, [data, isAuthenticated]);
+  }, []);
+  console.log("protected route runs");
 
-  return <>{isAuthenticated ? <RootLayOut /> : <Navigate to="/login" />}</>; // even though the console.log(isAuthenticated) runs
-  // and return null, the isAuthenticated variable is still null
-  // thus it never runs my <RootLayOut/> component
+  return <>{isAuthenticated && <RootLayOut />}</>; //<Navigate to="/login" />
 };
 
 export default Protected;

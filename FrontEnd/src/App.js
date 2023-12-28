@@ -17,20 +17,24 @@ import Protected from "./protected.js";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Protected />}>
-        <Route path="market" element={<Market />} />
-        <Route path="sell" element={<Sell />} />
-        <Route path="home" element={<Home />} />
-        <Route path="logout" element={<div>logout</div>} />
-      </Route>
+      <Route path="/">
+        <Route element={<Protected />}>
+          <Route path="market" element={<Market />} />
+          <Route path="sell" element={<Sell />} />
+          <Route path="home" element={<Home />} />
+          <Route path="logout" element={<div>logout</div>} />
+        </Route>
 
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+      </Route>
     </>
   )
 );
 
 function App() {
+  const data = localStorage.clear();
   return <RouterProvider router={router} />;
 }
 export default App;

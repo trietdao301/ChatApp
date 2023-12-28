@@ -27,9 +27,9 @@ function LoginForm() {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.accessToken);
-        //console.log(data.accessToken);
+        console.log(data.accessToken);
         //console.log(typeof data.accessToken);
-        navigate("/market");
+        navigate("/home");
       } else {
         console.log("POST response is not ok");
       }
@@ -42,9 +42,10 @@ function LoginForm() {
     // Display flash message
     if (message) {
       console.log("useEffect in Login");
+      console.log(message);
       setFlashMessage(message);
       return () => {
-        console.log("useEffect in Market clean up");
+        console.log("useEffect in Login clean up");
       };
     }
   }, [message]);
