@@ -1,4 +1,24 @@
-.HomeContainer{
-    width:fit-content;
-    height: fit-content;
+
+.home-container{
+    display: flex;
+    flex-direction: row;
 }
+.left-column-container{
+    display:flex;
+    flex:0.4;
+    border: 1px solid black;
+}
+.chat-container{
+    display:flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin:auto;
+    flex:1.5;
+}
+.chat-input {
+    padding: 8px;
+    width: 90%;
+    margin-left: 20px;
+    border-radius: 4px;
+}
+  

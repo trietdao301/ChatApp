@@ -12,7 +12,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Protected from "./protected.js";
+import Protected from "./Protected.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

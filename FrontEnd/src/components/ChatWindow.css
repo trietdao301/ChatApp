@@ -1,0 +1,8 @@
+.ChatWindow-container{
+    height: 600px;
+    border: 1px solid black;
+}
+.ChatWindow-inner-container{
+    margin-left: 20px;
+    border: 1px solid black;
+}

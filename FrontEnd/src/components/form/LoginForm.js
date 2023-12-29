@@ -10,7 +10,6 @@ function LoginForm() {
   const [flashMessage, setFlashMessage] = useState(null);
   const rootOfFlashMessage = useLocation(); // Display flash message
   const message = rootOfFlashMessage?.state?.flashMessage;
-  const [jwtToken, setJwtToken] = useState(null);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -27,7 +26,7 @@ function LoginForm() {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.accessToken);
-        console.log(data.accessToken);
+        //console.log(data.accessToken);
         //console.log(typeof data.accessToken);
         navigate("/home");
       } else {

@@ -62,10 +62,10 @@ def verify_token():
     token = request.get_json()
     if token:                
         data = jwt.decode(token, access_token_secret, algorithms=["HS256"])
-        if data is not None:
-            return jsonify(data), 201
+        if data is not None and get_user_by_username(data.get('name')) is not None:
+            return jsonify(data), 201     # data is a string value name of the user 
         else:
-            return jsonify({'error': 'account is not authorized.'}), 403
+            return jsonify({'error': 'account is not authorized.'}), 400
     else:
         return jsonify({'error': 'Token is empty'}), 500 
     

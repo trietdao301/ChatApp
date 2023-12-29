@@ -7,10 +7,7 @@ from app.Model.model import House
 from app import db
 from flask_socketio import SocketIO
 
-
 bp_routes = Blueprint('routes', __name__)
-
-
 
 @bp_routes.route('/', methods=['GET'])
 @bp_routes.route('/index', methods=['GET'])
