@@ -28,8 +28,30 @@ def initDB(*args, **kwargs):
         if User.query.count() == 0:
             user_object_1 = User(username="john", email="john@gmail.com")
             user_object_1.set_password("123")
-            user_object_1.house.append(house_object_1)
             db.session.add(user_object_1)
+            
+            user_object_2 = User(username="kim", email="kim@gmail.com")
+            user_object_2.set_password("123")
+            db.session.add(user_object_2)
+            
+            user_object_3 = User(username="kyle", email="kyle@gmail.com")
+            user_object_3.set_password("123")
+            db.session.add(user_object_3)
+            
+            user_object_4 = User(username="triet", email="triet@gmail.com")
+            user_object_4.set_password("123")
+            db.session.add(user_object_4)
+            
+            user_object_5 = User(username="kelly", email="kelly@gmail.com")
+            user_object_5.set_password("123")
+            db.session.add(user_object_5)
+            
+            user_object_1.add_friend(user_object_2)
+            user_object_1.add_friend(user_object_3)
+            user_object_1.add_friend(user_object_4)
+            user_object_1.add_friend(user_object_5)
+            user_object_2.add_friend(user_object_1)
+            
             db.session.commit()
         # if Product.query.count() == 0:
         #     ebay_data = scrap_ebay(keyword)

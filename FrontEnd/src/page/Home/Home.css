@@ -1,24 +1,113 @@
+/* Home Component Styles */
 
-.home-container{
+.Home-container {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  
+  /* ----------------------------------------------------START Left Column Styles-------------------------------------------------- */
+.Home-left-column-container {
+    flex: 0.15;
+    flex-direction: column;
+    background-color: rgb(38, 38, 38);
+    padding: 10px;
+}
+.Home-left-column-all-friend-container {
+    align-self: center;
+}
+/* FriendBox Styles */
+.Home-left-column-each-friendbox-container {
+    position: relative;
     display: flex;
     flex-direction: row;
+    
+    background-color: rgb(63, 63, 63);
+    margin: 10px;
+    padding: 5px;
+    width: 150px;
+    color: rgb(145, 145, 145);
+    cursor: pointer;
+    font-size: 15px;
+    overflow: hidden; /* Hide overflowing content */
+    transition: background-color ease 0.2s, 
+                color ease 0.2s, 
+                border-radius ease 0.2s, 
+                transform ease 0.2s;
 }
-.left-column-container{
+.Home-left-column-each-friendbox-container.active {
+     
+    background-color: rgb(160, 160, 255);   
+    color: rgb(255, 255, 255);
+    border-radius: 10px / 30px;
+    transform: translateX(16px);
+}
+
+/* ----------------------------------------------------END Left Column Styles-------------------------------------------------- */
+
+
+
+/* ----------------------------------------------------START Middle Column Styles-------------------------------------------------- */
+  .Home-middle-column-container {
     display:flex;
-    flex:0.4;
-    border: 1px solid black;
+    height: 90vh;
+    flex: 1;
+    flex-direction: column;
+    background-color: rgb(66, 66, 66);
+    padding: 10px;
+  }
+.Home-middle-column-chat-container {
+    color: rgb(192, 192, 192);
+    padding: 20px;
+    margin: 5px;
+    flex: 1;
+    overflow-y: auto;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
 }
-.chat-container{
+.Home-chatwindow-message{
     display:flex;
     flex-direction: column;
-    border: 1px solid black;
-    margin:auto;
-    flex:1.5;
+    gap:3px;
+}
+.Home-chatwindow-message:hover{
+    background-color: rgb(63, 63, 63);
+}
+.Home-chatwindow-message-header{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.Home-chatwindow-message-name{
+    color: rgb(210, 207, 207);  
+    font-size: 16px;
+}
+.Home-chatwindow-message-time{
+    font-size: 11px;
+}
+.Home-chatwindow-message-body{
+    font-size: 15px;
 }
 .chat-input {
+    width: 80%;
     padding: 8px;
-    width: 90%;
-    margin-left: 20px;
-    border-radius: 4px;
+    margin: 40px 0;
+    background-color: rgb(62, 62, 62);
+    border: none;
+    color: white;
 }
-  
+.chat-input:focus {
+    outline: none;
+    border: none;
+}
+.Send-button {
+    padding: 8px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+/* ----------------------------------------------------END Middle Column Styles-------------------------------------------------- */

@@ -10,7 +10,8 @@ const RootLayOut = ({ name }) => {
       </header>
 
       <main>
-        <Outlet /> {/* Outlet is for rendering the children of Navbar.  */}
+        <Outlet />
+        {/* Outlet is for rendering the children of Navbar.  */}
       </main>
     </div>
   );

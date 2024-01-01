@@ -1,3 +1,44 @@
 .App-global-container{
     display:flex;
 }
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+    /* Scrollbar Track */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Handle on hover and on scrollbar track */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 84, 92, 0.8);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(79, 84, 92, 0.6);
+    border-radius: 6px;
+  }
+  
+  /* Handle on scrollbar grab */
+  ::-webkit-scrollbar-thumb:active {
+    background: rgba(79, 84, 92, 1);
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-handle {
+    background: rgba(79, 84, 92, 0.6);
+    border-radius: 6px;
+  }
+  
+  /* Corner */
+  ::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0);
+  }
+  

@@ -3,7 +3,7 @@ import sys
 from flask import Blueprint
 from flask import render_template, flash, redirect, url_for, request, jsonify
 from config import Config
-from app.Model.model import House
+from app.Model.model import House, User
 from app import db
 from flask_socketio import SocketIO
 
@@ -29,6 +29,14 @@ def create_house():
         db.session.rollback()
         return jsonify({'error': f'Error creating house: {str(e)}'}), 500
     
+@bp_routes.route('/api/list_friend/<string:name>', methods=['GET'])
+def list_friend(name):
+    if name is not None:
+        current_user = User.query.filter_by(username=name).first()
+        friends = [friend.username for friend in current_user.friends]
+        return jsonify({current_user.username: friends})
+    else:
+        return jsonify({'error': f'Error listing friend: {str(e)}'}), 500
 
 
 

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import RootLayOut from "./components/layout/RootLayOut";
 import { useEffect, useState } from "react";
 
+let storedNameObject = null;
 const Protected = () => {
   let navigate = useNavigate();
   const data = localStorage.getItem("token");
@@ -18,10 +19,12 @@ const Protected = () => {
         });
         if (response.ok) {
           const resData = await response.json();
-          console.log("In protected" + JSON.stringify(resData));
-          //isAuthenticated.current = false;
-          setNameObject(resData); // nameObject = {name:"john"}
-          setIsAuthenticated(true);
+          if (resData) {
+            //isAuthenticated.current = false;
+            setNameObject(resData); // nameObject = {name:"john"}
+            storedNameObject = resData;
+            setIsAuthenticated(true);
+          }
         } else {
           setIsAuthenticated(false);
           navigate("/login");
@@ -35,5 +38,6 @@ const Protected = () => {
 
   return <>{isAuthenticated && <RootLayOut name={nameObject} />}</>; //<Navigate to="/login" />
 };
+const getCurrentNameObject = () => storedNameObject;
 
-export default Protected;
+export default { Protected, getCurrentNameObject };
