@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Home.css";
 import Protected from "../../Protected";
 import useFetch from "../../hooks/useFetch";
@@ -17,6 +17,30 @@ export default function Home() {
   const [currentTime, setCurrentTime] = useState(null);
   const [isClicked, setIsClicked] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [loadedChatHistory, setLoadedChatHistory] = useState([]);
+
+  const fetchData = async () => {
+    if (room !== "") {
+      try {
+        const response = await fetch(
+          `http://172.23.30.165:5000/api/load/chat/${room}`
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setLoadedChatHistory(data);
+          setDataReceived([]);
+          console.log(data);
+        }
+        // Process the data or update state as needed
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+  };
+  useEffect(() => {
+    // Call the fetchData function whenever the room changes
+    fetchData();
+  }, [room]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -46,6 +70,37 @@ export default function Home() {
         sender: current_user,
         currentTime: currentTime.toLocaleTimeString(),
       });
+      updateChatData({
+        message,
+        room,
+        sender: current_user,
+        senderTime: currentTime.toLocaleTimeString(),
+      });
+    }
+  }
+
+  // useEffect(() => {
+  //   updateChatData();
+  //   console.log(dataReceived);
+  // }, [dataReceived]);
+  async function updateChatData(props) {
+    const response = await fetch("http://172.23.30.165:5000/api/update/chat", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        message: props.message,
+        sender: props.sender,
+        senderTime: props.senderTime,
+        room: props.room,
+      }),
+    });
+
+    if (response.ok) {
+      console.log("Message data is updated");
+    } else {
+      console.log("Message data is not updated");
     }
   }
 
@@ -110,6 +165,24 @@ export default function Home() {
 
       <div className="Home-middle-column-container">
         <div className="Home-middle-column-chat-container">
+          {loadedChatHistory &&
+            loadedChatHistory.map((eachMessage, index) => {
+              return (
+                <div key={index} className="Home-chatwindow-message">
+                  <div className="Home-chatwindow-message-header">
+                    <div className="Home-chatwindow-message-name">
+                      {eachMessage.sender}
+                    </div>
+                    <div className="Home-chatwindow-message-time">
+                      {eachMessage.senderTime}
+                    </div>
+                  </div>
+                  <div className="Home-chatwindow-message-body">
+                    {eachMessage.message}
+                  </div>
+                </div>
+              );
+            })}
           {dataReceived &&
             dataReceived.map((eachMessage, index) => {
               return (

@@ -1,7 +1,6 @@
 from app import create_app, db,socketio
 from app.Model.model import House, User
 from flask_cors import CORS
-from flask_socketio import SocketIO, emit
 #from scrapper_selenium import scrap_ebay,scrap_amazon
 import jwt
 

@@ -12,12 +12,11 @@ function Navbar({ name }) {
   return (
     <nav className="nav-container">
       <div className="nav-container-left">
-        <Logo />
         <div className="navbar-search">
           <Search color={search_icon_color} />
           <input
             type="text"
-            placeholder="Search Facebook"
+            placeholder="Search Friend"
             className="search-input"
           />
         </div>

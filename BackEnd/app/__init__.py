@@ -1,7 +1,6 @@
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
-from flask_socketio import SocketIO
 from app.Controller.event import socketio
 
 db = SQLAlchemy()

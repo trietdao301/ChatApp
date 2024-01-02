@@ -39,4 +39,14 @@ class User(db.Model):
         if self is not user:
             self.friends.append(user)
         
+class ChatHistory(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    room = db.Column(db.String(200), unique = True)
+    messages = db.relationship('Message', backref='chat_history', lazy=True)
     
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    chat_history_id = db.Column(db.Integer, db.ForeignKey('chat_history.id'))
+    message = db.Column(db.String(500))
+    sender = db.Column(db.String(100))
+    sender_time = db.Column(db.String(200))

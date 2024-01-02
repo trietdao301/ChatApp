@@ -25,4 +25,4 @@ def on_leave(data):
 @socketio.on('send_message')
 def send_message(data):
     room = data['room']
-    emit('receive_message', data, to=room)      # data = {'message': "....", 'room':"...."}
+    emit('receive_message', data, to=room)  # data = {'message': "....", 'room':"....", 'sender':...,'currentTime':...}
