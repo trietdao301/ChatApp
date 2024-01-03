@@ -79,10 +79,6 @@ export default function Home() {
     }
   }
 
-  // useEffect(() => {
-  //   updateChatData();
-  //   console.log(dataReceived);
-  // }, [dataReceived]);
   async function updateChatData(props) {
     const response = await fetch("http://172.23.30.165:5000/api/update/chat", {
       headers: {
@@ -109,13 +105,14 @@ export default function Home() {
     const result = sortedUsernames.join("_");
     setActiveIndex(index);
     setRoom(result);
+    if (room !== "") {
+      leaveRoom();
+    }
   }
 
   useEffect(() => {
     if (socket) {
       socket.on("receive_message", (data) => {
-        console.log(data.message);
-
         setDataReceived((prevDataReceived) => {
           return [
             ...prevDataReceived,
@@ -139,6 +136,13 @@ export default function Home() {
     };
     joinRoom();
   }, [room, current_user]);
+
+  const leaveRoom = () => {
+    if (room !== "") {
+      socket.emit("leave_room", { current_user, room });
+      console.log(`Leaving room with friend: ${room}`);
+    }
+  };
 
   return (
     <div className="Home-container">
