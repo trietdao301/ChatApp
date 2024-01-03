@@ -25,12 +25,12 @@ function Navbar({ name }) {
         <li className="nav-container-middle-list">
           <NavLink to="/home">Home</NavLink>
         </li>
-        <li className="nav-container-middle-list">
+        {/* <li className="nav-container-middle-list">
           <NavLink to="/sell">Sell</NavLink>
         </li>
         <li className="nav-container-middle-list">
           <NavLink to="/market">Market</NavLink>
-        </li>
+        </li> */}
         <li className="nav-container-middle-list">
           <NavLink to="/viewProfile">View Profile</NavLink>
         </li>

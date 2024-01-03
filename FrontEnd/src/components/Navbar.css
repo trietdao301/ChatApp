@@ -60,6 +60,7 @@
     display: flex;
     gap:30px;
     align-items: center;
+    justify-content: center;
   }
 .nav-container-middle-list {
     margin-left: 15px; 
