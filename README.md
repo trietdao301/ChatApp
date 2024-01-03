@@ -4,4 +4,4 @@ pip3 install -r requirements.txt
 run selenium:
 pytest -v test_selenium.py
 
-image.png
+![Sample Image](./screen_shot.png)
