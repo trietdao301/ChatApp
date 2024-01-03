@@ -1,7 +1,3 @@
-install requirement:
-pip3 install -r requirements.txt
-
-run selenium:
-pytest -v test_selenium.py
+A chat application using React Socket.io, and Flask Python.
 
 ![Sample Image](./screen_shot.png)
