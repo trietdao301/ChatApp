@@ -4,6 +4,6 @@ A chat application using React Socket.io, and Flask Python.<br>
 
 ## Available Scripts
 
-In the project directory, you can run server and client with:
+In the project directory, you can run server and client concurrently with:
 
 ### `npm run start`
