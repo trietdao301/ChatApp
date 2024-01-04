@@ -1,9 +1,8 @@
-import Sell from "./page/Sell.js";
 import Login from "./page/Login/Login.js";
 import Register from "./page/Register/Register.js";
 import Home from "./page/Home/Home.js";
 import "./App.css";
-import Market from "./components/Market.js";
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -17,8 +16,6 @@ const router = createBrowserRouter(
     <>
       <Route path="/">
         <Route element={<Protected.Protected />}>
-          <Route path="market" element={<Market />} />
-          <Route path="sell" element={<Sell />} />
           <Route path="home" element={<Home />} />
           <Route path="logout" element={<div>logout</div>} />
         </Route>
