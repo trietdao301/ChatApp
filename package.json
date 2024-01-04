@@ -4,5 +4,13 @@
     "mysql2": "^3.6.5",
     "nodemon": "^3.0.2",
     "sequelize": "^6.11.0"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start-flask\" \"npm run start-react\"",
+    "start-flask": "cd server && python3 app.py",
+    "start-react": "cd client && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
